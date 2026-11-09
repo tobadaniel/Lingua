@@ -70,7 +70,7 @@ agent can call tools in a loop.
    ```bash
    export OTARI_API_KEY=otk_...
    # Optional: pick any model your workspace can use, provider/model form
-   export OTARI_MODEL=deepseek/deepseek-v4-pro-0813
+   export OTARI_MODEL=openai/gpt-oss-20b
    # Optional: EU-region keys use the EU host
    # export OTARI_BASE_URL=https://eu.api.otari.ai/api/v1
    ```

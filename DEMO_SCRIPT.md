@@ -1,12 +1,14 @@
-# Demo script — Lingua + Otari (target 4 minutes, hard cap 5)
+# Demo script — Lingua + Otari (target 2:55, hard cap 3:00)
+
+Length note: the hackathon detail page asks for a 3-5 minute demo, while DoraHacks' generic submission requirements state a 3 minute max. A 2:55 cut satisfies both, so do not let it run long.
 
 Recording notes: one terminal with Hermes (or the standalone test
 harness) and one browser tab on the Otari workspace (Usage/Activity
 and Models tabs open, signed in). Have `OTARI_API_KEY` **unset** at
-the start; you set it on camera in Act 3. Cards used: the French
+the start; you set it on camera in the live act. Cards used: the French
 starter deck plus `le pain` = bread.
 
-## 0:00–0:35 — The problem (talking head / title card)
+## 0:00–0:25 — The problem (talking head / title card)
 
 "Lingua is a language-learning plugin for Hermes Agent. It does real
 spaced repetition, SM-2, the Anki algorithm, entirely offline: decks
@@ -16,7 +18,7 @@ word perfectly and still grade your answer like a string match. Real
 learning needs a tutor's judgement. This hackathon is where Lingua
 got one, through Mozilla's Otari gateway."
 
-## 0:35–1:20 — The offline core, quickly (terminal)
+## 0:25–0:55 — The offline core, quickly (terminal)
 
 - `/lingua seed french` → 20 cards loaded.
 - `/lingua stats` → deck, due counts.
@@ -25,7 +27,7 @@ got one, through Mozilla's Otari gateway."
 - "That second answer is the gap. Watch what changes when the tutor
   layer is on."
 
-## 1:20–1:50 — What Otari is, in one breath (browser, otari.ai)
+## 0:55–1:15 — What Otari is, in one breath (browser, otari.ai)
 
 - Show the workspace: API Keys tab (the `otk_` token, scoped,
   revocable), Models tab (many providers, one endpoint).
@@ -34,7 +36,7 @@ got one, through Mozilla's Otari gateway."
   The first commit on the `otari-hackathon` branch is the gateway
   client; everything tutor-shaped comes after it."
 
-## 1:50–3:20 — The tutor layer, live (terminal)
+## 1:15–2:20 — The tutor layer, live (terminal)
 
 1. First, with the key still unset, call `lingua_example` for
    `le pain`: it declines with the exact setup instructions, and a
@@ -49,7 +51,7 @@ got one, through Mozilla's Otari gateway."
 4. Grade a card `again` twice, then `lingua_mnemonic`: a vivid hook
    for the stubborn word.
 
-## 3:20–4:05 — The gateway view (browser, Otari Usage/Activity)
+## 2:20–2:45 — The gateway view (browser, Otari Usage/Activity)
 
 - Refresh Usage: the three tutor calls are listed with model, tokens,
   and cost.
@@ -60,7 +62,7 @@ got one, through Mozilla's Otari gateway."
   tutor call, show it working unchanged. "Model choice is config,
   not code. That is the gateway earning its place."
 
-## 4:05–4:30 — Close
+## 2:45–2:55 — Close
 
 "So: Lingua 1.1. Same offline spaced-repetition core, now with a
 tutor that judges meaning, invents examples and mnemonics, and runs
@@ -75,4 +77,4 @@ feedback are linked in the submission. Thank you."
   outputs are identical in shape.
 - A model call is slow: cut on the request, not the response; the
   three tutor beats can each stand alone if one must be trimmed to
-  stay under 5 minutes.
+  stay under 3 minutes.

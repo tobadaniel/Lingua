@@ -14,7 +14,7 @@ Configuration, first hit wins per value:
    - ``OTARI_BASE_URL`` default ``https://api.otari.ai/api/v1``;
      EU-region keys must use ``https://eu.api.otari.ai/api/v1``
    - ``OTARI_MODEL``    provider/model id, e.g.
-     ``deepseek/deepseek-v4-pro-0813``
+     ``openai/gpt-oss-20b``
 
 Nothing in this module runs at import time and no request is made
 unless a tutor tool is called with a key configured. Without a key the
@@ -34,7 +34,7 @@ DEFAULT_BASE_URL = "https://api.otari.ai/api/v1"
 EU_BASE_URL = "https://eu.api.otari.ai/api/v1"
 # The model used in the Otari quickstart: an open-weight model served
 # in provider/model form through the hosted gateway.
-DEFAULT_MODEL = "deepseek/deepseek-v4-pro-0813"
+DEFAULT_MODEL = "openai/gpt-oss-20b"
 DEFAULT_TIMEOUT = 30.0
 
 MISSING_KEY_MESSAGE = (

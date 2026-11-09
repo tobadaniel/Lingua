@@ -66,7 +66,7 @@ Only features the code in this repo actually exercises:
   with standard OpenAI request/response shapes.
 - **Multi-provider model IDs / open-weight models** — models are
   addressed in `provider/model` form (default
-  `deepseek/deepseek-v4-pro-0813`) and are switchable purely by
+  `openai/gpt-oss-20b`) and are switchable purely by
   config (`OTARI_MODEL` / `otari_model`) with zero code change.
 - **Workspace API key scoping** — the integration uses a single
   workspace token (`otk_...`) read from the environment, never a

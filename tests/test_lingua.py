@@ -276,7 +276,7 @@ class TestOtariClient(LinguaTestCase):
         self.assertEqual(
             request["headers"]["Authorization"], "Bearer otk_test123")
         self.assertEqual(
-            request["payload"]["model"], "deepseek/deepseek-v4-pro-0813")
+            request["payload"]["model"], "openai/gpt-oss-20b")
         self.assertEqual(
             request["payload"]["messages"],
             [{"role": "user", "content": "say hi"}])

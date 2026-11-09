@@ -24,13 +24,14 @@ Twice, both early.
 
 First, at the model-name step. A direct provider integration has one
 obvious default model; Otari makes you pick a `provider/model` id from
-a catalog, and the quickstart's example
-(`deepseek/deepseek-v4-pro-0813`) is not obviously "the cheap sensible
-default" a plugin should ship. The temptation was to hardcode a
-familiar provider model and move on. What stopped it: the whole point
-of the tutor layer is that the learner, not the plugin, owns the
-model choice, so the client ships the quickstart model only as a
-fallback and exposes `OTARI_MODEL` / an `otari_model` setting. That is
+a catalog, and the quickstart's example model is not obviously "the
+cheap sensible default" a plugin should ship. The temptation was to
+hardcode a familiar provider model and move on. What stopped it: the
+whole point of the tutor layer is that the learner, not the plugin,
+owns the model choice, so the client ships one verified cheap
+open-weight model only as a fallback (`openai/gpt-oss-20b`, seen in
+our own workspace's Models tab at $0.03/M input, $0.14/M output) and
+exposes `OTARI_MODEL` / an `otari_model` setting. That is
 arguably the right design, but the docs could say plainly which
 open-weight models are good cheap defaults for small chat calls.
 

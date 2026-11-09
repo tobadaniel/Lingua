@@ -1,0 +1,21 @@
+name: lingua
+version: 1.0.0
+manifest_version: 2
+api_version: 1
+description: A language learning trainer for Hermes Agent. Build vocabulary decks, get quizzed in chat, and let SM-2 spaced repetition bring each word back right before you forget it. Local first, no API key, no external service.
+author: Oluwatoba Daniel
+license: MIT
+homepage: https://github.com/tobadaniel/lingua
+tags: [language-learning, vocabulary, spaced-repetition, education]
+provides_tools:
+  - lingua_add
+  - lingua_due
+  - lingua_grade
+  - lingua_list
+  - lingua_remove
+  - lingua_stats
+provides_hooks:
+  - pre_llm_call
+config_schema:
+  daily_target: {type: int, default: 10, description: "How many due cards a review session aims for"}
+  nudge_on_first_turn: {type: bool, default: true, description: "Mention due reviews at the start of a new session"}

@@ -1,6 +1,7 @@
 # DoraHacks submission pack — Mozilla Otari: Devs Wilding Online
 
-Paste-ready. Replace the two bracketed items before submitting.
+Paste-ready. One bracketed item (the Otari signup email) still to
+fill in before submitting.
 
 ## Project name
 
@@ -19,9 +20,7 @@ semantic answer grading through Mozilla's Otari gateway.
 
 ## Public GitHub repository
 
-[TODO: public repo URL for this project, e.g.
-https://github.com/tobadaniel/lingua — must serve branch
-`otari-hackathon`]
+https://github.com/tobadaniel/lingua (branch `otari-hackathon`)
 
 ## Hackathon branch
 
@@ -29,12 +28,14 @@ https://github.com/tobadaniel/lingua — must serve branch
 
 ## First commit where Otari came in
 
-Commit `b239664a4fa632b330ac3345c8686d7efae616f9` —
+Commit `47b435924a4a86c522b26c25e3254fae1f43e5fa` —
+https://github.com/tobadaniel/lingua/commit/47b435924a4a86c522b26c25e3254fae1f43e5fa
 "Add Otari gateway client (first Otari integration)"
 (adds `otari_client.py`, the stdlib OpenAI-compatible client pointed
 at `https://api.otari.ai/api/v1`, plus the `otari_*` plugin settings
 in `plugin.yaml`). It is the first commit on `otari-hackathon` after
-the Lingua 1.0.0 base commit `e634e1e`.
+the Lingua 1.0.0 base commit `c9760302432469642766ea4dc3bab956a738bb4b`
+(the GitHub snapshot of Lingua 1.0.0).
 
 ## What was built with Otari
 

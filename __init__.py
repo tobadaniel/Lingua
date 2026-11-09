@@ -5,6 +5,11 @@ quizzes you in chat, grades your recall honestly, and brings each word
 back right before you would forget it. A pre_llm_call hook nudges you
 when reviews are due, so practice happens inside the conversations you
 already have with your agent.
+
+Optional Otari tutor layer: when OTARI_API_KEY is set, three extra
+tools route through Mozilla AI's Otari gateway to generate example
+sentences and mnemonics and to semantically check free-text answers.
+The six core tools stay fully offline either way.
 """
 
 from __future__ import annotations
@@ -156,6 +161,11 @@ def register(ctx):
         _SETTINGS["nudge_on_first_turn"] = bool(
             ctx.get_config("nudge_on_first_turn", default=True)
         )
+        tools.configure_otari(
+            enabled=bool(ctx.get_config("otari_enabled", default=True)),
+            model=str(ctx.get_config("otari_model", default="") or ""),
+            base_url=str(ctx.get_config("otari_base_url", default="") or ""),
+        )
     except Exception:
         logger.debug("Lingua: could not read plugin settings", exc_info=True)
 
@@ -182,6 +192,18 @@ def register(ctx):
     ctx.register_tool(
         name="lingua_stats", toolset="lingua",
         schema=schemas.LINGUA_STATS, handler=tools.lingua_stats,
+    )
+    ctx.register_tool(
+        name="lingua_example", toolset="lingua",
+        schema=schemas.LINGUA_EXAMPLE, handler=tools.lingua_example,
+    )
+    ctx.register_tool(
+        name="lingua_mnemonic", toolset="lingua",
+        schema=schemas.LINGUA_MNEMONIC, handler=tools.lingua_mnemonic,
+    )
+    ctx.register_tool(
+        name="lingua_check", toolset="lingua",
+        schema=schemas.LINGUA_CHECK, handler=tools.lingua_check,
     )
 
     ctx.register_hook("pre_llm_call", _due_nudge)

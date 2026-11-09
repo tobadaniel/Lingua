@@ -1,6 +1,6 @@
 [project]
 name = "lingua"
-version = "1.0.0"
+version = "1.1.0"
 description = "Language learning trainer plugin for Hermes Agent: vocabulary decks with SM-2 spaced repetition."
 requires-python = ">=3.11"
 license = { text = "MIT" }

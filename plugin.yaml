@@ -1,8 +1,8 @@
 name: lingua
-version: 1.0.0
+version: 1.1.0
 manifest_version: 2
 api_version: 1
-description: A language learning trainer for Hermes Agent. Build vocabulary decks, get quizzed in chat, and let SM-2 spaced repetition bring each word back right before you forget it. Local first, no API key, no external service.
+description: A language learning trainer for Hermes Agent. Build vocabulary decks, get quizzed in chat, and let SM-2 spaced repetition bring each word back right before you forget it. Local first; optional Otari tutor layer adds LLM examples, mnemonics and semantic answer checks when OTARI_API_KEY is set.
 author: Oluwatoba Daniel
 license: MIT
 homepage: https://github.com/tobadaniel/lingua
@@ -14,6 +14,9 @@ provides_tools:
   - lingua_list
   - lingua_remove
   - lingua_stats
+  - lingua_example
+  - lingua_mnemonic
+  - lingua_check
 provides_hooks:
   - pre_llm_call
 config_schema:

@@ -154,3 +154,97 @@ LINGUA_STATS = {
         "required": [],
     },
 }
+
+
+_CARD_REF = {
+    "id": {
+        "type": "integer",
+        "description": "Id of an existing card; term, translation and language are read from it when not given directly.",
+    },
+    "term": {
+        "type": "string",
+        "description": "The word or phrase in the target language, e.g. 'le pain'.",
+    },
+    "translation": {
+        "type": "string",
+        "description": "What the term means in the user's language, e.g. 'bread'.",
+    },
+    "language": {
+        "type": "string",
+        "description": "The language being learned, e.g. 'french', 'spanish', 'yoruba'.",
+    },
+}
+
+LINGUA_EXAMPLE = {
+    "name": "lingua_example",
+    "description": (
+        "Generate one fresh, contextual example sentence for a vocabulary "
+        "card using the Otari LLM gateway, with its translation and a "
+        "short usage note. Use this when a card has no example, when the "
+        "stored example feels stale, or when the user asks to see a word "
+        "used in a real sentence or in a specific context. Requires the "
+        "Otari tutor layer (OTARI_API_KEY set); without a key it returns "
+        "a clear explanation instead of an example, and the offline "
+        "tools keep working."
+    ),
+    "parameters": {
+        "type": "object",
+        "properties": {
+            **_CARD_REF,
+            "context": {
+                "type": "string",
+                "description": "Optional setting for the sentence, e.g. 'at a bakery', 'travel', 'work'.",
+            },
+        },
+        "required": [],
+    },
+}
+
+LINGUA_MNEMONIC = {
+    "name": "lingua_mnemonic",
+    "description": (
+        "Generate a vivid mnemonic hook that links the sound or shape of "
+        "a vocabulary term to its meaning, using the Otari LLM gateway. "
+        "Use this when the user keeps missing a card (graded again more "
+        "than once) or asks for a memory trick. Requires the Otari tutor "
+        "layer (OTARI_API_KEY set); without a key it returns a clear "
+        "explanation instead of a mnemonic."
+    ),
+    "parameters": {
+        "type": "object",
+        "properties": dict(_CARD_REF),
+        "required": [],
+    },
+}
+
+LINGUA_CHECK = {
+    "name": "lingua_check",
+    "description": (
+        "Semantically check a learner's free-text answer to a quiz card "
+        "using the Otari LLM gateway: it judges meaning rather than "
+        "exact string match, accepts synonyms and minor typos, and "
+        "returns a verdict (correct, close, wrong), short feedback, and "
+        "a suggested SM-2 grade. It does NOT record the grade: show the "
+        "feedback, then call lingua_grade with the suggested grade "
+        "(adjusting if the learner disputes it). Use this during review "
+        "sessions whenever an answer is not obviously right or wrong. "
+        "Requires the Otari tutor layer (OTARI_API_KEY set); without a "
+        "key, judge the answer yourself as before."
+    ),
+    "parameters": {
+        "type": "object",
+        "properties": {
+            **_CARD_REF,
+            "answer": {
+                "type": "string",
+                "description": "The learner's free-text answer to check.",
+            },
+            "direction": {
+                "type": "string",
+                "enum": ["term_to_translation", "translation_to_term"],
+                "description": "Which way the card was quizzed (default term_to_translation).",
+            },
+        },
+        "required": ["answer"],
+    },
+}

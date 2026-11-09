@@ -10,7 +10,7 @@ an Otari tutor layer
 
 ## Email (Otari signup email)
 
-[TODO: the email used to sign up at otari.ai]
+officialtobadaniel@gmail.com (signed up at Otari.ai via GitHub account tobadaniel)
 
 ## One-line description
 

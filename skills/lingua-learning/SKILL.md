@@ -36,6 +36,26 @@ schedule; you own the teaching.
 - If the user is starting out, offer a starter deck: `/lingua seed
   french` or `/lingua seed spanish` loads 20 essentials.
 
+## Using the Otari tutor tools
+
+When `OTARI_API_KEY` is configured, three extra tools are available.
+If a tutor tool returns an `otari_configured: false` error, do not
+retry it in the same session: explain briefly how to enable it and
+continue with the offline tools.
+
+- **Free-text answers:** when the user's answer is not obviously right
+  or wrong, call `lingua_check` instead of judging by exact wording.
+  Show its feedback, then record the grade it suggests with
+  `lingua_grade`, adjusting only if the user disputes the verdict.
+- **Stuck cards:** if a card has been graded `again` twice, offer a
+  `lingua_mnemonic` hook before the next attempt, and read it aloud as
+  part of the retry.
+- **Examples:** prefer `lingua_example` over inventing a sentence
+  yourself when the user asks for a word in context, or when a card
+  has no example. Pass the setting the user cares about as `context`.
+  If they like the sentence, save it on the card with `lingua_add`
+  (same term and translation, example set), which updates in place.
+
 ## Tone
 
 Encouraging, brief, no lectures. Celebrate streaks and mastered cards

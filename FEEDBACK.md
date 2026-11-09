@@ -126,5 +126,5 @@ key-scoping endpoint does not accept. We fell back to "Inherit your
 access" (all models) and added a $5/month budget cap on the key
 instead, which worked. This is the sharpest friction we hit: the
 dashboard and the API disagree about a model id, and the error only
-appears at final submit. A matching issue is being filed on
-mozilla-ai/otari (see OTARI_ISSUE.md in this repo).
+appears at final submit. Filed as https://github.com/mozilla-ai/otari/issues/3069
+(draft in OTARI_ISSUE.md in this repo).

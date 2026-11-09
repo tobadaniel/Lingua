@@ -84,10 +84,12 @@ the live calls in the Usage view.
 
 ## PRs or issues opened on the Otari repo
 
-One genuine issue found live on 2026-11-10 (draft in
-`OTARI_ISSUE.md`): key creation rejects the picker-offered model id
+Filed: https://github.com/mozilla-ai/otari/issues/3069 — key
+creation rejects the picker-offered model id
 `mistralai/mistral-small-3` as "unknown provider or instance
-'mistralai'". TODO: replace this line with the filed issue URL.
+'mistralai'" (found live on 2026-11-10; draft kept in
+`OTARI_ISSUE.md`). The Otari repo was also starred, as the hackathon
+asks.
 
 ## Demo video (3–5 minutes)
 

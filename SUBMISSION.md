@@ -72,18 +72,21 @@ Only features the code in this repo actually exercises:
   workspace token (`otk_...`) read from the environment, never a
   provider credential and never stored by the plugin.
 
-Not claimed (configured in the dashboard during the demo, but not
-exercised by the code, so not listed as used): budgets and the
-usage/activity tracking views. TODO-VERIFY before submitting: if the
-demo recording does exercise a budget stop and the activity view with
-the real key, move those two items into the list above with a line
-each on what was done.
+Also live-verified on 2026-11-10: the workspace key `lingua-otari`
+was created with a **$5/month budget cap** (budgets feature, applied
+at key level). Model scoping was attempted ("Only selected":
+gpt-oss-20b + mistral-small-3) but the server rejected the
+picker-offered mistralai id as an unknown provider — see FEEDBACK.md;
+the key therefore inherits all models. Usage/activity tracking is
+still TODO-VERIFY: promote it here only if the demo recording shows
+the live calls in the Usage view.
 
 ## PRs or issues opened on the Otari repo
 
-None yet. TODO: if a genuine issue is filed while verifying the live
-error behaviour (see FEEDBACK.md), link it here; do not file a
-placeholder issue just to fill this field.
+One genuine issue found live on 2026-11-10 (draft in
+`OTARI_ISSUE.md`): key creation rejects the picker-offered model id
+`mistralai/mistral-small-3` as "unknown provider or instance
+'mistralai'". TODO: replace this line with the filed issue URL.
 
 ## Demo video (3–5 minutes)
 

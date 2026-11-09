@@ -110,3 +110,21 @@ stops a call, and with what status; (3) switching `OTARI_MODEL` to a
 second provider's model works with no code change. If those three
 hold, there is no reason for Lingua to grow a direct provider path,
 and the Otari layer stays the only network code in the plugin.
+
+## Verified live, 2026-11-10: the model-scoping bug
+
+Creating our workspace key, we tried to scope it to two models with
+"Only selected": `openai/gpt-oss-20b` and `mistralai/mistral-small-3`.
+Both were offered and selectable in the dashboard's own model picker
+(the picker even labels the second one "(mistralai)"), but the server
+rejected key creation with:
+
+    'mistralai/mistral-small-3': unknown provider or instance 'mistralai'
+
+So the Models tab and the picker advertise a `provider/model` id the
+key-scoping endpoint does not accept. We fell back to "Inherit your
+access" (all models) and added a $5/month budget cap on the key
+instead, which worked. This is the sharpest friction we hit: the
+dashboard and the API disagree about a model id, and the error only
+appears at final submit. A matching issue is being filed on
+mozilla-ai/otari (see OTARI_ISSUE.md in this repo).

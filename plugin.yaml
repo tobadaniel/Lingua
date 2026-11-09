@@ -19,3 +19,6 @@ provides_hooks:
 config_schema:
   daily_target: {type: int, default: 10, description: "How many due cards a review session aims for"}
   nudge_on_first_turn: {type: bool, default: true, description: "Mention due reviews at the start of a new session"}
+  otari_enabled: {type: bool, default: true, description: "Enable the optional Otari tutor layer (example sentences, mnemonics, semantic answer checks). It only makes network calls when OTARI_API_KEY is set in the environment."}
+  otari_model: {type: string, default: "", description: "Otari model id in provider/model form, e.g. deepseek/deepseek-v4-pro-0813. Empty means use OTARI_MODEL or the built-in default."}
+  otari_base_url: {type: string, default: "", description: "Otari gateway base URL. Empty means use OTARI_BASE_URL or https://api.otari.ai/api/v1 (EU keys: https://eu.api.otari.ai/api/v1)."}

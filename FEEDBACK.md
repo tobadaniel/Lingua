@@ -128,3 +128,24 @@ instead, which worked. This is the sharpest friction we hit: the
 dashboard and the API disagree about a model id, and the error only
 appears at final submit. Filed as https://github.com/mozilla-ai/otari/issues/3069
 (draft in OTARI_ISSUE.md in this repo).
+
+## Verified live, 2026-11-10: the zero-balance wall
+
+With the real workspace key stored and used through an
+OpenAI-compatible client, auth and routing work: the gateway accepted
+the key and answered our chat completion request. It answered with:
+
+    402 {"detail": "Insufficient funds ($0.00) to serve this request.",
+         "code": "insufficient_funds"}
+
+That is a clean, well-shaped error and the plugin maps it to a clear
+message, which is good design. The friction is upstream of it: the
+hackathon promised the first 200 sign-ups $20 in Otari tokens, our
+workspace was created during the hackathon window, and the wallet
+still shows $0.00 with no claim route in the dashboard (Billing does
+offer "Redeem voucher", but no voucher was ever issued to us). So a
+hackathon participant following the official path reaches a paywall
+before their first successful call, in a competition whose premise is
+finishing a side project on the hosted gateway. Even a token amount
+of starter credit, or a visible claim state, would remove the single
+biggest drop-off point we hit.

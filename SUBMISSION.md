@@ -1,7 +1,6 @@
 # DoraHacks submission pack — Mozilla Otari: Devs Wilding Online
 
-Paste-ready. One bracketed item (the Otari signup email) still to
-fill in before submitting.
+Paste-ready; all fields filled.
 
 ## Project name
 
@@ -93,14 +92,26 @@ asks.
 
 ## Demo video (3–5 minutes)
 
-[TODO: video link] — recorded from `DEMO_SCRIPT.md` in this repo:
-offline core, graceful no-key behaviour, live tutor calls, Otari
-usage view, model switch by config.
+https://lingua-otari-demo.netlify.app/ (direct file:
+https://lingua-otari-demo.netlify.app/demo.mp4) — 2:55, recorded
+from `DEMO_SCRIPT.md` in this repo: offline core, graceful no-key
+behaviour, tutor calls, budget-capped key, model switch by config.
+
+One honest note: the gateway responses in the video are simulated
+with the plugin's own test transport and are labelled as such on
+screen. The workspace key is real and verified (it authenticates
+against the live gateway), but the organisation wallet holds $0.00 —
+the advertised $20 first-200 sign-up credit never landed and no
+claim route exists — so live calls return 402 Insufficient funds.
+That finding, with the exact gateway response, is documented in
+FEEDBACK.md. The integration code path is identical either way: the
+demo driver runs the same client and tools against the live gateway
+when a funded key is present.
 
 ## Feedback
 
 Written feedback: `FEEDBACK.md` in this repo answers the three
 DoraHacks questions (temptation to bypass Otari; what we built that
-Otari should have done; whether we would keep using Otari), with
-live-service claims marked TODO-VERIFY until checked with a real
-workspace key.
+Otari should have done; whether we would keep using Otari), plus
+live-verified findings from a real workspace key: the model-picker
+scoping bug (issue #3069) and the zero-balance 402 wall.
